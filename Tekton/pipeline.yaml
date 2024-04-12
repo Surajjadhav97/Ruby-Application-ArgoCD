@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: myapp-pipeline
+spec:
+  tasks:
+    - name: tekon-pipeline
+      taskRef:
+        name: git-clone
+      params:
+        - name: url
+          value: https://github.com/Surajjadhav97/
+        - name: revision
+          value: main
+        - name: subdirectory
+          value: .
+    - name: build-image
+      taskRef:
+        name: buildah
+      params:
+        - name: TLSVerify
+          value: "false"
+        - name: image
+          value: docker.io/dockerhub-username/myapp
+        - name: context
+          value: $(workspaces.source.pat
