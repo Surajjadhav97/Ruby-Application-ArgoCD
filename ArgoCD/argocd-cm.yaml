@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  namespace: argocd
+data:
+  repositories: |
+    - url: https://github.com/Surajjadhav97/myapp-deploy.git
+      username: your-github-username
+      password: your-github-access-token
+

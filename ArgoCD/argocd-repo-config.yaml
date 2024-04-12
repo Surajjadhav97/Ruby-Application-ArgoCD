@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-repo-config
+  namespace: argocd
+stringData:
+  repositories: |
+    - url: https://github.com/your-username/myapp-deploy.git
+      sshPrivateKey: |
+        -----BEGIN RSA PRIVATE KEY-----
+        ...
+        -----END RSA PRIVATE KEY-----
+
