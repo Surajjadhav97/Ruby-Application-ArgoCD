@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: suraj-pipeline
+spec:
+  pipelineRef:
+    name: suraj-pipeline
+  workspaces:
+    - name: source
+      emptyDir: {}
